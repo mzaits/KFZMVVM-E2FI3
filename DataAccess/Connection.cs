@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
+//( ͡° ͜ʖ ͡°)
 using Mk.DBConnector;
 using CommonTypes;
 
@@ -20,7 +20,7 @@ namespace DataAccess
             // Testcomment
             try
             {
-                Connection.Adapter = new DBAdapter(DatabaseType.MySql, Instance.NewInstance, "localhost", 3306, "kfzka", "ukfz", "ukfz", "logdatei.log");
+                Connection.Adapter = new DBAdapter(DatabaseType.MySql, Instance.NewInstance, "localhost", 3306, "kfzka", "root", "", "logdatei.log");
                 Connection.Adapter.Adapter.LogFile = true;
                 IsConnected = true;
             }
