@@ -23,22 +23,22 @@ namespace WpfApplication1.ViewModels
         private void notifyPropertyChanged(string propname)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propname));
-        }        
+        }
 
         private KFZCollectionModel _kfzm;
-        public ObservableCollection <KFZDisplay> KFZObservableCollection { get; private set; } = new ObservableCollection<KFZDisplay>();
+        public ObservableCollection<KFZDisplay> KFZObservableCollection { get; private set; } = new ObservableCollection<KFZDisplay>();
 
         #region Construction
 
-        
+
 
         public MainViewModel()
         {
-            
-            _kfzm = new KFZCollectionModel();
+
+
             _kfzm.KFZDataArrived += _kfzm_KFZDataArrived;
 
-
+            _kfzm = new KFZCollectionModel();
         }
 
         private void _kfzm_KFZDataArrived(List<KFZ> kfzs)
@@ -57,9 +57,10 @@ namespace WpfApplication1.ViewModels
         public KFZDisplay SelectedKFZ
         {
             get { return _selectedKFZ; }
-            set {
+            set
+            {
                 _selectedKFZ = value;
-               notifyPropertyChanged("SelectedKFZ");
+                notifyPropertyChanged("SelectedKFZ");
             }
         }
 
@@ -87,11 +88,11 @@ namespace WpfApplication1.ViewModels
 
         private void NewKfz()
         {
-            KFZDisplay kd = new KFZDisplay(){ PId = -1, Selected = true };
+            KFZDisplay kd = new KFZDisplay() { PId = -1, Selected = true };
             KFZObservableCollection.Add(kd);
             SelectedKFZ = kd;
-            
-            
+
+
         }
 
         public ICommand DeleteSelectedCommand
@@ -107,7 +108,7 @@ namespace WpfApplication1.ViewModels
         {
             foreach (KFZDisplay kfzvm in KFZObservableCollection)
             {
-                if(kfzvm.Selected)
+                if (kfzvm.Selected)
                 {
                     if (kfzvm.PId == -1)
                     {
@@ -135,7 +136,7 @@ namespace WpfApplication1.ViewModels
         //...an Command binden...
         private void ShowKfzDetails()
         {
-            
+
         }
 
         public ICommand DatenHolenCommand
