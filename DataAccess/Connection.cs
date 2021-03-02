@@ -17,7 +17,7 @@ namespace DataAccess
         internal static DBAdapter Adapter;
         static Connection()
         {
-
+            // Testcomment
             try
             {
                 Connection.Adapter = new DBAdapter(DatabaseType.MySql, Instance.NewInstance, "localhost", 3306, "kfzka", "ukfz", "ukfz", "logdatei.log");
